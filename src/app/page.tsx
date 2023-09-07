@@ -1,18 +1,34 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import Image from 'next/image';
+import styles from './page.module.css';
+import { useState } from 'react';
+import Link from 'next/link';
+import {useRouter} from 'next/navigation';
+
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <h1>Home Page</h1>
-          </main>
-  )
-}
+  const router = useRouter();
+  const [name,setName] = useState("User")
+  const apple=()=>{
+    setName("Usman")
+  }
 
-const User = ()=>{
-  return(
-    <div>
-      <h2>My Name is Usman</h2>
-    </div>
-  )
+  const InnerComponent =()=>{
+    return (
+      <h1>Inner Compeonent</h1>
+    )
+  }
+  return ( 
+    <main className={styles.main}>
+      
+      <h1>Events, Fucnction and States {name}</h1>
+      <Link href="/login">Go to Login Page</Link><br></br>
+      <Link href="/about">Go to About Page</Link><br></br>
+      <button onClick={()=>router.push("/login")}>Login Page</button>
+      <button onClick={()=>router.push("/about")}>About Page</button>
+      <button onClick={apple}>Click Me</button>
+      <InnerComponent />
+      {InnerComponent()}
+    </main> 
+  );
 }
