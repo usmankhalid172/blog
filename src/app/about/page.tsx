@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 const About =()=>{
@@ -6,7 +7,7 @@ const About =()=>{
         <div>
             <h2>This is About Page</h2>
             <Link href="/">Go To Home Page</Link>
-            <button onClick={()=>router.back()}></button>
+            <button onClick={()=>router.back()}>Home Page</button>
         </div>
     )
 }

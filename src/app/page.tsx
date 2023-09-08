@@ -8,6 +8,9 @@ import {useRouter} from 'next/navigation';
 
 export default function Home() {
   const router = useRouter();
+  const navigate =(pageName: string)=>{
+    router.push(pageName)
+  }
   const [name,setName] = useState("User")
   const apple=()=>{
     setName("Usman")
@@ -25,7 +28,7 @@ export default function Home() {
       <Link href="/login">Go to Login Page</Link><br></br>
       <Link href="/about">Go to About Page</Link><br></br>
       <button onClick={()=>router.push("/login")}>Login Page</button>
-      <button onClick={()=>router.push("/about")}>About Page</button>
+      <button onClick={()=>navigate("/about")}>About Page</button>
       <button onClick={apple}>Click Me</button>
       <InnerComponent />
       {InnerComponent()}
